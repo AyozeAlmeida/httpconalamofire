@@ -10,6 +10,8 @@ import UIKit
 
 import Alamofire
 import SwiftyJSON
+import ReachabilitySwift
+
 
 
 
@@ -17,14 +19,42 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        //declare this property where it won't go out of scope relative to your listener
+              
         
-       
-        // FUNCION GET
-        Alamofire.request("http://www.loquatsolutions.com/detres/detres/api/mostrarPedidos").responseData { (resData) -> Void in
-            print(resData.result.value!)
-            let strOutput = String(data : resData.result.value!, encoding : String.Encoding.utf8)
-            print(strOutput!)
+        
+        
+        // estado sin conexion
+        // voy guardando las cosas para luego mandar
+        
+        
+    
+        
+        
+        // esta es la comprobacion con la c lase que no usa cocoa y que sirve
+        
+        
+        if Reachibility.isConnectedToNetwork() == true
+        {
+            print("Internet Connection Available!")
         }
+        else
+        {
+            print("Internet Connection not Available!")
+        }
+        
+        
+        
+        
+        // FUNCION GET
+       
+        
+        //Alamofire.request("http://www.loquatsolutions.com/detres/detres/api/mostrarPedidos").responseData { (resData) -> Void in
+         //   print(resData.result.value!)
+          //  let strOutput = String(data : resData.result.value!, encoding : String.Encoding.utf8)
+          //  print(strOutput!)
+       // }
        
         
         
@@ -43,11 +73,13 @@ class ViewController: UIViewController {
             "gender": "xxx"
         ]
         
-        
-     
+        let headers: HTTPHeaders = [
+            "Authorization": "ayozeapikey123456==",
+            "Accept": "application/json"
+        ]
     
-        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
-            print(response)
+        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+           // print(response)
         }
         
         

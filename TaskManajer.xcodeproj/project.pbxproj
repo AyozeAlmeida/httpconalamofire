@@ -10,6 +10,8 @@
 		106BB07B95E136284FC005D4 /* Pods_TaskManajerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E338319FB56165ADD307F3 /* Pods_TaskManajerTests.framework */; };
 		30D023E544C49D80FD4A6040 /* Pods_TaskManajerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079EE6AEDC0B1FA168FC0D9 /* Pods_TaskManajerUITests.framework */; };
 		3B860BBB3397BA37603F917E /* Pods_TaskManajer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33720823B4F7491CA3959F80 /* Pods_TaskManajer.framework */; };
+		ED082BEA1EF91B0B0096241F /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED082BE91EF91B0B0096241F /* Reachibility.swift */; };
+		ED082BEC1EF922430096241F /* ReachabilitySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED082BEB1EF922430096241F /* ReachabilitySwift.swift */; };
 		ED5A5AB01EF71691005E9F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A5AAF1EF71691005E9F61 /* AppDelegate.swift */; };
 		ED5A5AB21EF71691005E9F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A5AB11EF71691005E9F61 /* ViewController.swift */; };
 		ED5A5AB51EF71691005E9F61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5A5AB31EF71691005E9F61 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 		C72A3FFAD02F11FE68CB3DDD /* Pods-TaskManajer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManajer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManajer/Pods-TaskManajer.debug.xcconfig"; sourceTree = "<group>"; };
 		CC42ABCECE981B8807C621D5 /* Pods-TaskManajer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManajer.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManajer/Pods-TaskManajer.release.xcconfig"; sourceTree = "<group>"; };
 		E8E338319FB56165ADD307F3 /* Pods_TaskManajerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskManajerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED082BE91EF91B0B0096241F /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
+		ED082BEB1EF922430096241F /* ReachabilitySwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilitySwift.swift; sourceTree = "<group>"; };
 		ED5A5AAC1EF71691005E9F61 /* TaskManajer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManajer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5A5AAF1EF71691005E9F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED5A5AB11EF71691005E9F61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				ED5A5ABB1EF71691005E9F61 /* LaunchScreen.storyboard */,
 				ED5A5ABE1EF71691005E9F61 /* Info.plist */,
 				ED5A5AB61EF71691005E9F61 /* TaskManajer.xcdatamodeld */,
+				ED082BE91EF91B0B0096241F /* Reachibility.swift */,
+				ED082BEB1EF922430096241F /* ReachabilitySwift.swift */,
 			);
 			path = TaskManajer;
 			sourceTree = "<group>";
@@ -453,7 +459,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5A5AB21EF71691005E9F61 /* ViewController.swift in Sources */,
+				ED082BEC1EF922430096241F /* ReachabilitySwift.swift in Sources */,
 				ED5A5AB81EF71691005E9F61 /* TaskManajer.xcdatamodeld in Sources */,
+				ED082BEA1EF91B0B0096241F /* Reachibility.swift in Sources */,
 				ED5A5AB01EF71691005E9F61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +721,7 @@
 				ED5A5AD91EF71691005E9F61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED5A5ADA1EF71691005E9F61 /* Build configuration list for PBXNativeTarget "TaskManajerTests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +730,7 @@
 				ED5A5ADC1EF71691005E9F61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED5A5ADD1EF71691005E9F61 /* Build configuration list for PBXNativeTarget "TaskManajerUITests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +739,7 @@
 				ED5A5ADF1EF71691005E9F61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
