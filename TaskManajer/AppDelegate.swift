@@ -8,22 +8,78 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // ESTA ES LA PARTE BUENA
-       // HABRA ALGUN MOMENTO DONDE HAYA QUE POENR stopMonitoring.
+   
     
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        NetworkManager().backgroundCompletionHandler = completionHandler
+        
+        print("aqui es donde voy a descargar en segundo plano")
+        
+    }
+    
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
+        
+        
+        
         ReachabilityManager.shared.startMonitoring()
         
         
+       
+        
+   //     BackendAPIManager.sharedInstance.alamoFireManager.upload(multipartFormData: { (multipartFormData) in
+            
+            
+        
+        /*
+        
+        
+        if #available(iOS 10, *) {
+            
+            //Notifications get posted to the function (delegate):  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)"
+            
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                
+                guard error == nil else {
+                    //Display Error.. Handle Error.. etc..
+                    return
+                }
+                
+                if granted {
+                    //Do stuff here..
+                    
+                    //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
+                    application.registerForRemoteNotifications()
+                }
+                else {
+                    //Handle user denying permissions..
+                }
+            }
+            
+            //Register for remote notifications.. If permission above is NOT granted, all notifications are delivered silently to AppDelegate.
+            application.registerForRemoteNotifications()
+        }
+        else {
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        }
+        
+        
+        */
         
         return true
     }
@@ -32,8 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
+      
+         print("aplicacion en segunndo plano")
+        
+        
+        
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -43,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+       print("aplicacion activa")
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
@@ -97,5 +159,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+      
+        
+        
+            ViewController().descarga()
+            print("handler")
+            completionHandler(.newData)
+        
+        
+        
+    }
 }
 

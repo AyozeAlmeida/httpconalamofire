@@ -37,9 +37,10 @@ class ReachabilityManager: NSObject {
         switch reachability.currentReachabilityStatus {
         case .notReachable:
             debugPrint("Network became unreachable")
+            
         case .reachableViaWiFi:
             debugPrint("Network reachable through WiFi")
-        case .reachableViaWWAN:
+                  case .reachableViaWWAN:
             debugPrint("Network reachable through Cellular Data")
         }
     }
